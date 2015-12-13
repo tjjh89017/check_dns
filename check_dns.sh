@@ -7,7 +7,7 @@ check() {
 	local value=$3;
 	
 	output=$(
-		dig +nocmd "$domain" +multiline +noall +answer \
+		dig +nocmd "$domain" +multiline +noall +answer @ns1.he.net \
 		| awk '{print $4, $5}' \
 		| grep "$2 $3"
 	)
